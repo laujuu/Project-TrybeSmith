@@ -1,8 +1,13 @@
 import express from 'express';
+import httpErrorMiddleware from './middlewares/http.error.middleware';
+import productsRoutes from './/routes/products.routes';
 
 const app = express();
 
-// vqv
 app.use(express.json());
+
+app.use('/products', productsRoutes);
+
+app.use(httpErrorMiddleware);
 
 export default app;
